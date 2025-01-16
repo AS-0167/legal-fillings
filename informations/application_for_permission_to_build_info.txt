@@ -1,0 +1,27 @@
+Application Number (for office use).
+Date.
+Plot Number.
+Scheme Name.
+Full Name.
+Son/Daughter/Wife/Widow of (Name of Parent/Spouse).
+Correspondence Address.
+Phone Number.
+Signature.
+Name of Registered Architect.
+Registration Number of Architect.
+Architect's Address and Phone Number.
+Consulting Engineer's Name.
+PEC Registration Number.
+Engineer's Address.
+Materials and Methods of Construction for Foundations, Walls, Roof, Staircase, etc.
+Purpose of Building (Residential/Commercial/Industrial/Other).
+Number of Toilets, Privies, and Urinals.
+Drainage and Sewerage Details.
+Number of Storeys.
+Number of Occupants.
+Previous Construction Details (if applicable):
+Date of Previous Building Demolition.
+Date of Sanction for Previous Construction.
+Property Number.
+Description of Alterations or Additions (if applicable).
+Sanction Date of Previous Application (if applicable).

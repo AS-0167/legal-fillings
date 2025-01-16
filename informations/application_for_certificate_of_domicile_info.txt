@@ -1,0 +1,14 @@
+Full Name.
+Father’s Name.
+Former Place of Residence.
+Current Residence Address (Tehsil, District, Rev/Adm Punjab).
+Duration of Continuous Residence in Pakistan (years and months).
+Date of Arrival in Pakistan.
+Marital Status (Married/Single/Widow).
+Name of Spouse (if applicable).
+Names and Ages of Children.
+Trade/Occupation.
+Marks of Identification.
+Visa Details (Number, Date, Issuing Office, and Location if applicable).
+Signature.
+Date and Place.

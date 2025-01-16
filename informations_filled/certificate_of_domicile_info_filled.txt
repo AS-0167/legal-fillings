@@ -1,0 +1,20 @@
+Application Number: 123
+Date: 13-2-24
+Applicant Name: Newton
+Father's Name: Albert Einstien
+Address in Pakistan: Lahore, pakistan
+Cell Number: 1234521
+Address Outside Pakistan: London
+Place of Domicile: Lahore
+Province/Administrative Unit: punjab
+Date of Arrival in the Place of Domicile: 1-2-12
+Marital Status: Married/Single/Widow/Widower: Maried
+Spouse Name(if applicable): Alice
+Date of Birth: 12-9-1902
+Name(s) of Children and Ages (if any): NIL
+Trade/Occupation: Scientist
+Marks of Identification: hair
+Official Declaration: NIL
+Signatory: newton
+District: Punjab
+Date of Issuance: 12-3-14

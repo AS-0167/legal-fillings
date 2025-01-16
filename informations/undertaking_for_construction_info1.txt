@@ -1,0 +1,45 @@
+Proposed Building Title:   
+Plot Number:   
+Area of Plot:   
+Address and Location of Proposed Building:  
+Declarant Name:   
+Father's Name:   
+Owner/Builder Role:   
+Name of Owner/Builder:   
+NIC No. of Owner/Builder:   
+Address of Owner/Builder:  
+Tel. No. of Owner/Builder:   
+Signature of Owner/Builder:   
+Date:   
+Witness 1 Name:   
+Witness 1 Designation with BS:   
+Witness 1 NIC No.:   
+Witness 1 Address:  
+Witness 1 Tel. No.:   
+Witness 1 Signature:   
+Witness 1 Date:   
+Witness 2 Name:   
+Witness 2 Designation with BS:   
+Witness 2 NIC No.:   
+Witness 2 Address:  
+Witness 2 Tel. No.:   
+Witness 2 Signature:   
+Witness 2 Date:   
+Witness 3 Name:   
+Witness 3 Designation with BS:   
+Witness 3 NIC No.:   
+Witness 3 Address:  
+Witness 3 Tel. No.:   
+Witness 3 Signature:   
+Witness 3 Date:   
+Proposed Building Title (for Authority Letter):   
+Plot Number (for Authority Letter):   
+Area of Plot (for Authority Letter):   
+Address and Location (for Authority Letter):  
+Authorizer Name:   
+Authorizer Father's Name:   
+Authorized Person Name:   
+Authorized Person Father's Name:   
+Authorized Person CNIC No.:   
+Owner/Builder Signature (for Authority Letter):   
+Owner/Builder Name (Printed for Authority Letter): 

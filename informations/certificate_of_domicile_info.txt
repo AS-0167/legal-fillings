@@ -1,0 +1,20 @@
+Application Number
+Date
+Applicant Name
+Father's Name
+Address in Pakistan
+Cell Number
+Address Outside Pakistan
+Place of Domicile
+Province/Administrative Unit
+Date of Arrival in the Place of Domicile
+Marital Status: Married/Single/Widow/Widower
+Spouse Name(if applicable)
+Date of Birth
+Name(s) of Children and Ages (if any)
+Trade/Occupation
+Marks of Identification
+Official Declaration
+Signatory
+District
+Date of Issuance

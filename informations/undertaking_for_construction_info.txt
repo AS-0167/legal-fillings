@@ -1,0 +1,14 @@
+```
+Title of the Work
+Plot Number
+Area of the Plot
+Address and Location of Proposed Building
+Full Name of Owner/Builder
+Father's Name
+NIC Number
+Address of Owner/Builder
+Telephone Number of Owner/Builder
+Full Name of Authorized Person
+Father's Name
+NIC Number of Authorized Person
+```
