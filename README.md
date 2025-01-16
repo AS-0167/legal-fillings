@@ -67,6 +67,7 @@ This will launch the **Form-Filler** web interface in your default browser.
 
 ## 🤝 Contributing
 We welcome contributions! Feel free to fork this repository, submit issues, or create pull requests to improve the project.
+
 ---
 ### **🔹 Form-Filler: Making Legal Documentation Effortless! 🔹**
 
