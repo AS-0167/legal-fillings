@@ -28,7 +28,7 @@ All these documents are stored in the **documents/** folder.
 ## 🛠 Installation Guide
 ### **1️⃣ Clone the Repository**
 ```bash
- git clone https://github.com/your-repo/form-filler.git
+ git clone https://github.com/AS-0167/Form-Filler.git
  cd form-filler
 ```
 
@@ -63,18 +63,10 @@ This will launch the **Form-Filler** web interface in your default browser.
 1. **Select a Legal Document**: Choose a document from the provided list.
 2. **Enter Required Information**: The app will prompt you for the necessary details.
 3. **AI-Powered Form Completion**: Google AI Studio fills in the document based on your input.
-4. **Download the Completed PDF**: The generated document is available for download.
-
-## 📜 License
-This project is open-source and licensed under the **MIT License**.
+4. **Download the Completed PDF**: The generated document is downloaded in the folder documents_filled/.
 
 ## 🤝 Contributing
 We welcome contributions! Feel free to fork this repository, submit issues, or create pull requests to improve the project.
-
-## 📧 Contact
-For any inquiries or support, please reach out to:
-📩 **Email**: your.email@example.com
-
 ---
 ### **🔹 Form-Filler: Making Legal Documentation Effortless! 🔹**
 
