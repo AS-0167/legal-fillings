@@ -14,13 +14,21 @@
 Form-Filler comes with the following default legal documents:
 
 ✔️ **Affidavit (Rawalpindi)**
+
 ✔️ **Application for Certificate of Domicile**
+
 ✔️ **Application for Copy of Domicile Certificate**
+
 ✔️ **Application for Permission to Build**
+
 ✔️ **Application for Wood Transit Permit**
+
 ✔️ **Assets Form**
+
 ✔️ **Certificate of Domicile**
+
 ✔️ **Police Character Certificate**
+
 ✔️ **Undertaking for Construction**
 
 All these documents are stored in the **documents/** folder.
