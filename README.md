@@ -58,6 +58,7 @@ To quickly set up and run the application in a Docker container, use the followi
    docker run -d -p 8501:8501 form-filling-app
    ```
 3. Run the app :
+   
   This will start the **Form-Filler** app in a Docker container, and you can access it by going to `http://localhost:8501` in your web browser.
 
 ### **4️⃣ Install Dependencies (for local setup without Docker)**
