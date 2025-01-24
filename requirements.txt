@@ -1,6 +1,5 @@
 streamlit
-fpdf
 google-generativeai
-charset-normalizer
-reportlab
+pdf2image
+PyPDF2
 

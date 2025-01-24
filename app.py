@@ -1,19 +1,15 @@
 import streamlit as st
 import os
-from fpdf import FPDF  # To generate PDF files
-import google.generativeai as genai
-from io import BytesIO  # For PDF download
-from charset_normalizer import from_path
-from reportlab.lib.pagesizes import letter
-from reportlab.pdfgen import canvas
-
+import google.generativeai as genais
+import subprocess
+import shutil
 
 # Configure the generative AI
 with open("api.key", "r") as file:
     API_KEY = file.read().strip()
-genai.configure(api_key=API_KEY)
+genais.configure(api_key=API_KEY)
 base_model = "models/gemini-1.5-flash-001-tuning"
-model = genai.GenerativeModel(model_name=base_model)
+model = genais.GenerativeModel(model_name=base_model)
 
 # List of document names
 documents = [
@@ -40,12 +36,23 @@ def get_filled_pdf_file(doc_name):
     """Get the path to save the PDF"""
     return f"documents_filled/{doc_name}.pdf"
 
+def get_filled_laetx_file(doc_name):
+    """Get the path to save the latex"""
+    return f"documents_latex_filled/{doc_name}.tex"
 
-def get_pdf_file(doc_name):
-    """Get the path to save the PDF"""
+
+def get_txt_file(doc_name):
+    """Get the path to the txt file"""
     return f"documents_txt/{doc_name}.txt"
 
+def get_latex_file(doc_name):
+    """Get the path to the latex file"""
+    return f"documents_latex/{doc_name}.tex"
 
+def save_the_latex_file(latex_path, latex_code) :
+    with open(latex_path, "w", encoding="utf-8") as tex_file:
+        tex_file.write(latex_code)
+    print("LaTeX code generated and saved as output.tex")
 
 def extract_required_information(document_text, output_path):
     """Uses Gemini AI to extract required information fields from a legal document."""
@@ -111,88 +118,114 @@ def extract_required_information(document_text, output_path):
     except Exception as e:
         print(f"Error in extracting required fields: {e}")
 
-def convert_text_to_pdf(text, pdf_path):
-    """
-    Convert a string of text to a PDF file and save it to the specified path.
-
-    Parameters:
-    - text (str): The text content to be converted into a PDF.
-    - pdf_path (str): The output file path where the PDF will be saved.
-    """
-    try:
-        # Ensure the directory for the PDF file exists
-        os.makedirs(os.path.dirname(pdf_path), exist_ok=True)
-
-        # Create a PDF
-        pdf = canvas.Canvas(pdf_path, pagesize=letter)
-        pdf.setFont("Helvetica", 12)
-        width, height = letter
-        x, y = 50, height - 50  # Starting coordinates
-
-        for line in text.split("\n"):
-            if y < 50:  # If the page bottom is reached, create a new page
-                pdf.showPage()
-                pdf.setFont("Helvetica", 12)
-                y = height - 50
-            pdf.drawString(x, y, line.strip())  # Write line to PDF
-            y -= 15  # Move cursor down for the next line
-
-        # Save the PDF
-        pdf.save()
-        print(f"PDF successfully created and saved to: {pdf_path}")
-
-    except Exception as e:
-        print(f"Error converting text to PDF: {e}")
-
-# from markdown2 import markdown
-# from reportlab.lib.pagesizes import letter
-# from reportlab.lib.styles import getSampleStyleSheet
-# from reportlab.platypus import SimpleDocTemplate, Paragraph
-
-# def convert_text_to_pdf(markdown_text, pdf_path):
+# def convert_text_to_pdf(text, pdf_path):
 #     """
-#     Convert Markdown text to a beautifully formatted PDF.
+#     Convert a string of text to a PDF file and save it to the specified path.
 
 #     Parameters:
-#     - markdown_text (str): The Markdown content to be converted into a PDF.
+#     - text (str): The text content to be converted into a PDF.
 #     - pdf_path (str): The output file path where the PDF will be saved.
 #     """
 #     try:
 #         # Ensure the directory for the PDF file exists
 #         os.makedirs(os.path.dirname(pdf_path), exist_ok=True)
 
-#         # Convert Markdown to HTML
-#         html_content = markdown(markdown_text)
+#         # Create a PDF
+#         pdf = canvas.Canvas(pdf_path, pagesize=letter)
+#         pdf.setFont("Helvetica", 12)
+#         width, height = letter
+#         x, y = 50, height - 50  # Starting coordinates
 
-#         # Create a ReportLab PDF
-#         doc = SimpleDocTemplate(pdf_path, pagesize=letter)
-#         styles = getSampleStyleSheet()
-#         story = []
+#         for line in text.split("\n"):
+#             if y < 50:  # If the page bottom is reached, create a new page
+#                 pdf.showPage()
+#                 pdf.setFont("Helvetica", 12)
+#                 y = height - 50
+#             pdf.drawString(x, y, line.strip())  # Write line to PDF
+#             y -= 15  # Move cursor down for the next line
 
-#         # Create a Paragraph from the HTML content
-#         story.append(Paragraph(html_content, styles["Normal"]))
-
-#         # Build the PDF
-#         doc.build(story)
+#         # Save the PDF
+#         pdf.save()
 #         print(f"PDF successfully created and saved to: {pdf_path}")
 
 #     except Exception as e:
-#         print(f"Error converting Markdown to PDF: {e}")
+#         print(f"Error converting text to PDF: {e}")
 
 
-def generate_ai_response(document, information):
+
+
+def latex_to_pdf(tex_path, output_dir="documents_filled"):
+    """
+    Converts a LaTeX (.tex) file to PDF using Tectonic and stores it in a separate output directory.
+
+    Parameters:
+        tex_path (str): Path to the .tex file.
+        output_dir (str): Directory where the generated PDF should be saved.
+
+    Returns:
+        str: Path to the generated PDF if successful, else None.
+    """
+    if not os.path.exists(tex_path):
+        print(f"❌ Error: File '{tex_path}' not found.")
+        return None
+
+    # Ensure output directory exists
+    os.makedirs(output_dir, exist_ok=True)
+
+    try:
+        # Get directory and filename separately
+        tex_dir = os.path.dirname(os.path.abspath(tex_path))
+        tex_filename = os.path.basename(tex_path)
+
+        # Run tectonic in the same directory as the .tex file
+        subprocess.run(
+            ["tectonic", tex_filename],  # Pass only the filename
+            check=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            cwd=tex_dir  # Change working directory to where .tex file is located
+        )
+
+        # Get the generated PDF path (same as .tex file but with .pdf extension)
+        pdf_filename = os.path.splitext(tex_filename)[0] + ".pdf"
+        generated_pdf_path = os.path.join(tex_dir, pdf_filename)
+
+        # Define the final destination path in the output directory
+        output_pdf_path = os.path.join(output_dir, pdf_filename)
+
+        # Move the generated PDF to the output directory
+        if os.path.exists(generated_pdf_path):
+            shutil.move(generated_pdf_path, output_pdf_path)
+            print(f"✅ PDF successfully generated and moved to: {output_pdf_path}")
+            return output_pdf_path
+        else:
+            print("❌ Error: PDF not generated.")
+            return None
+
+    except subprocess.CalledProcessError as e:
+        print("❌ Tectonic failed:", e.stderr.decode())
+        return None
+
+def generate_ai_response(document, information, latex_code):
     """Generate a filled document using Generative AI"""
     prompt = f'''
-    You are an AI assistant tasked with helping users create legal documents.
-    Your job is to take a template of a legal document (which contains placeholders for certain pieces of information) 
-    and then fill in the placeholders with the information provided by the user.
+        You are an AI that specializes in processing LaTeX documents. 
+        Your task is to take a document template written in text form, a set of filled information fields, and a LaTeX document structure. 
+        Using these inputs, you must replace the placeholders in the LaTeX code with the provided information and generate a final, correctly formatted LaTeX document.
 
     Inputs:
-    1. Template document: {document}
-    2. User Information: {information}
+        Document Template (Text Form): {document}
+        Filled Information Fields: {information}
+        LaTeX Code: {latex_code}        
+    Instructions:
+        Identify all placeholders in the LaTeX code that need to be filled with the provided information.
+        Replace each placeholder with the corresponding value from the filled information fields.
+        Preserve the LaTeX syntax and structure while ensuring correct formatting.
+        Ensure that special LaTeX characters (like _, %, $) are properly escaped.
+        Return only the final LaTeX document without any extra text.
 
-    Please fill in the placeholders and return a neatly formatted document.
-    Also keep the indentation and formatting consistent with the original document.
+    Output Format:
+        A valid, fully formatted LaTeX document with the placeholders replaced by the provided values.
 
     '''
     # Also return the response in markdown formate make appropriate headings etc.
@@ -213,7 +246,7 @@ st.title("Legal Document Filling Service")
 selected_doc = st.selectbox("Select a Document", documents)
 
 # Check if the selected document has an info file
-pdf_doc = get_pdf_file(selected_doc)
+pdf_doc = get_txt_file(selected_doc)
 info_file = get_info_file(selected_doc)
 
 # Open the file
@@ -251,17 +284,30 @@ if os.path.exists(info_file):
                 for question, answer in user_inputs.items():
                     f.write(f"{question}: {answer}\n")
 
+            # load the latex file
+            latex_file = get_latex_file(selected_doc)
+            with open(latex_file, "r") as f:
+                latex_code = f.read()
+
             # Generate the AI response
             information_str = "\n".join([f"{k}: {v}" for k, v in user_inputs.items()])
             
-            ai_response = generate_ai_response(document_template, information_str)
+            ai_response = generate_ai_response(document_template, information_str, latex_code)
 
             # Convert AI response to PDF
             pdf_path = get_filled_pdf_file(selected_doc)
-            convert_text_to_pdf(ai_response, pdf_path)
+            latex_path = get_filled_laetx_file(selected_doc)
+            save_the_latex_file(latex_path, ai_response)
+
+            with open(latex_path, "r") as lx:
+                latex_filled = lx.read()
+            latex_to_pdf(latex_path) 
+
+            # convert_text_to_pdf(ai_response, pdf_path)
 
             st.success(f"Information for {selected_doc.replace('_', ' ').title()} has been processed successfully!")
 else:
     # If info file does not exist, display a message
     st.warning(f"The service for '{selected_doc.replace('_', ' ').title()}' is not available at the moment.")
+
 
