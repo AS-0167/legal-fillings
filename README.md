@@ -59,7 +59,10 @@ To quickly set up and run the application in a Docker container, use the followi
    ```
 3. Run the app :
    
-  This will start the **Form-Filler** app in a Docker container, and you can access it by going to `http://localhost:8501` in your web browser.
+  This will start the **Form-Filler** app in a Docker container, and you can access it by going to the follwing link in your web browser.
+  ```
+  http://localhost:8501
+  ```
 
 ### **4️⃣ Install Dependencies (for local setup without Docker)**
 If you prefer to run the app without Docker, ensure that you have Python installed. Then, install the required packages using:
