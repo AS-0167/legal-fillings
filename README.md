@@ -1,7 +1,7 @@
-# 📝 Form-Filler
+# 📝 Legal Fillings
 
 ## 📌 Overview
-**Form-Filler** is an AI-powered web application designed to simplify the process of filling out legal documents and application forms. This project aims to assist users in quickly and accurately completing various legal forms without the hassle of manual data entry. With built-in AI assistance, users only need to provide their basic details, and the system will automatically generate a well-structured, professional document.
+**Legal-Fillings** is an AI-powered web application designed to simplify the process of filling out legal documents and application forms. This project aims to assist users in quickly and accurately completing various legal forms without the hassle of manual data entry. With built-in AI assistance, users only need to provide their basic details, and the system will automatically generate a well-structured, professional document.
 
 ## 🚀 Features
 - **Preloaded Legal Documents**: The application includes several commonly used legal documents and forms by default.
@@ -37,8 +37,8 @@ All these documents are stored in the **documents/** folder.
 
 ### **1️⃣ Clone the Repository**
 ```bash
-git clone https://github.com/AS-0167/Form-Filler.git
-cd form-filler
+git clone https://github.com/AS-0167/legal-fillings.git
+cd legal-fillings
 ```
 
 ### **2️⃣ Install Docker (if not installed)**  
